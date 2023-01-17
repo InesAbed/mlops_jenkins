@@ -1,10 +1,10 @@
 # Dockerfile to build a flask app
 
-FROM python:3.9
+FROM python:latest
 
-WORKDIR /app
+WORKDIR usr/app
 
-COPY requirements.txt .
+COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["python","app.py"]
+CMD ["python","-m", "flask", "run"]
