@@ -3,14 +3,15 @@ pipeline{
   stages{
     stage('Build'){
       steps{
-        bat'docker build -t tpjenkins .'
+        bat 'docker build -t tpjenkins .'
       }
     }
     stage('Testing') {
-            steps {
-                bat 'python -m unittest'
-            }
-        }
+      steps {
+        bat 'pip install -r requirements.txt'
+        bat 'python test_main.py'
+      }
+    }
     stage('Deploy'){
       steps{
         echo 'Deploying...'
