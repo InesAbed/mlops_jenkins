@@ -3,7 +3,7 @@ pipeline{
   stages{
     stage('Build'){
       steps{
-        bat'docker build -t tpjenkins .'
+        bat'docker build --privileged -t tpjenkins .'
       }
     }
     stage('Test'){
