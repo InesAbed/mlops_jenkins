@@ -6,11 +6,13 @@ pipeline{
         bat'docker build -t tpjenkins .'
       }
     }
-    stage('Test'){
-      steps{
-        bat'pytest'
-      }
-    }
+    stage('Testing') {
+            steps {
+                bat '''
+                    pytest
+                '''
+            }
+        }
     stage('Deploy'){
       steps{
         echo 'Deploying...'
