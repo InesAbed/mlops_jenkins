@@ -3,12 +3,12 @@ pipeline{
   stage{
     stage('Build'){
       steps{
-        sh'docker build -t tpjenkins .'
+        bat'docker build -t tpjenkins .'
       }
     }
     stage('Test'){
       steps{
-        sh'python -m unittest'
+        bat'python -m unittest'
       }
     }
     stage('Deploy'){
