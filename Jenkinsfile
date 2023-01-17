@@ -1,23 +1,21 @@
-pipeline{
+pipeline {
+
     agent any
-    stages{
-        stage('Build'){
-            steps{
-                script{
-                    sh 'npm install'
-                    sh 'npm test'
-                    sh 'npm run build'
-                    docker.build('image')
-                }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'docker build -t tp_ml_jenkins .'
             }
         }
-        stage('Deploy'){
-            steps{
-                scrip{
-                    echo'Deploying image...'
-                }
+        stage('Test') {
+            steps {
+                sh 'python -m unittest'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
-}
-                
+}               
