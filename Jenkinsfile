@@ -1,6 +1,6 @@
 pipeline{
   agent any
-  stage{
+  stages{
     stage('Build'){
       steps{
         bat'docker build -t tpjenkins .'
