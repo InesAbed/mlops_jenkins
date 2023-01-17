@@ -1,22 +1,23 @@
-pipeline {
+pipeline{
     agent any
-    stages {
-        stage('Build') {
-            steps {
-                script {
+    stages{
+        stage('Build'){
+            steps{
+                script{
                     sh 'npm install'
                     sh 'npm test'
                     sh 'npm run build'
-                    docker.build('my-image-name')
+                    docker.build('image')
                 }
             }
         }
-        stage('Deploy') {
-            steps {
-                script {
-                    echo 'Deploying...'
+        stage('Deploy'){
+            steps{
+                scrip{
+                    echo'Deploying image...'
                 }
             }
         }
     }
 }
+                
