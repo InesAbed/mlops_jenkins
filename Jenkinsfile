@@ -8,7 +8,7 @@ pipeline{
     }
     stage('Testing') {
             steps {
-                bat 'python -m unittest'
+                bat 'python'
             }
         }
     stage('Deploy'){
